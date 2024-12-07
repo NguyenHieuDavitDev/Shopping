@@ -1,0 +1,79 @@
+.product-comparison {
+  font-family: "Montserrat", sans-serif;
+  max-width: 1200px;
+}
+
+.product-list {
+  display: grid;
+ 
+}
+
+h2.product-comparison-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+h3.product-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 110%;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+.product-details {
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+.product-details p {
+  margin: 5px 0;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.product-details p:last-child {
+  border-bottom: none;
+}
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  margin: 0 auto;
+}

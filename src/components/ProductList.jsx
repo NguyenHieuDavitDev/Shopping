@@ -1,118 +1,92 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./ProductList.css";
-import airtag from "../assets/airtag.jpeg";
-import iphone from "../assets/iphone.jpg";
-import macbook from "../assets/macbook.jpeg";
-import dongHo from "../assets/smartwatch.jpeg";
-import ApplePencil from "../assets/pencil.jpeg";
-import khan from "../assets/khan.jpeg";
-import Airpods from "../assets/airpods.jpeg";
-import chuot from "../assets/chuot.jpeg";
-import trackpad from "../assets/trackpad.png";
-import AppleVesion from "../assets/apple vesion.jpg";
-import loa from "../assets/loaApple.jpg";
-import AirpodsMax from "../assets/airport max.jpeg";
-const products = [
-  {
-    id: 1,
-    name: "Xe máy Honda Vision 2023",
-    price: 36000000,
-    image: airtag,
-  },
-  {
-    id: 2,
-    name: "Iphone 16 Pro Max",
-    price: 30000000,
-    image: iphone,
-  },
-  {
-    id: 3,
-    name: "MacBook M4 pro",
-    price: 120000000,
-    image: macbook,
-  },
-  {
-    id: 4,
-    name: "Đồng Hồ",
-    price: 10000000,
-    image: dongHo,
-  },
-  {
-    id: 5,
-    name: "Viết Apple pencil",
-    price: 3000000,
-    image: ApplePencil,
-  },
-  {
-    id: 6,
-    name: "Khăn Apple",
-    price: 500000,
-    image: khan,
-  },
-  {
-    id: 7,
-    name: "AirPods 5 pro",
-    price: 6000000,
-    image: Airpods,
-  },
-  {
-    id: 8,
-    name: "Magic mouse",
-    price: 2000000,
-    image: chuot,
-  },
-  {
-    id: 9,
-    name: "TrackPad",
-    price: 5000000,
-    image: trackpad,
-  },
-  {
-    id: 10,
-    name: "Apple vesion",
-    price: 25000000,
-    image: AppleVesion,
-  },
-  {
-    id: 11,
-    name: "AirPods Max",
-    price: 12000000,
-    image: AirpodsMax,
-  },
-  {
-    id: 12,
-    name: "Loa Aplle",
-    price: 7000000,
-    image: loa,
-  },
-];
+import { getProducts } from "../components/ProductData";
+import { CartContext } from "../components/CartContext";
+const products = getProducts();
 
 function ProductList() {
   const navigate = useNavigate();
+  const { addToCart, cartItemCount } = useContext(CartContext);
+  const [jumpingCount, setJumpingCount] = useState(false);
+  const location = useLocation();
+  const filteredProducts = location.state?.filteredProducts || [];
+  const allProducts = getProducts();
+  const productListRef = useRef(null);
+
+  const productsToDisplay =
+    filteredProducts.length > 0 ? filteredProducts : allProducts;
 
   const handleProductClick = (id) => {
     navigate(`/product/${id}`);
   };
 
+  const handleBuyNow = (product) => {
+    addToCart(product);
+    setJumpingCount(true);
+    setTimeout(() => {
+      setJumpingCount(false);
+    }, 1000);
+    navigate("/cart");
+  };
+
+  const handleCategoryClick = (categoryName) => {
+    navigate(`/category/${categoryName}`);
+  };
+
+  // Sử dụng useEffect để cuộn đến danh sách sản phẩm khi component được render
+  useEffect(() => {
+    if (filteredProducts.length > 0) {
+      productListRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [filteredProducts]);
+
   return (
-    <div className="product-list">
-      {products.map((product) => (
-        <div
-          key={product.id}
-          className="product-card"
-          onClick={() => handleProductClick(product.id)}
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className="product-image"
-          />
-          <h3 className="product-name">{product.name}</h3>
-          <p className="product-price">{product.price}đ</p>
+    <>
+      <h2 className="product-title">SẢN PHẨM</h2>
+      <div className="product-list" ref={productListRef}>
+        {productsToDisplay.length >= 0 ? (
+          productsToDisplay.map((product) => (
+            <div
+              key={product.id}
+              className="product-card"
+              onClick={() => handleProductClick(product.id)}
+            >
+              <div className="productlist-image">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <h3 className="product-name">{product.name}</h3>
+              <p className="product-price">{product.price.toLocaleString()}đ</p>
+              <button
+                className="buy-now-button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBuyNow(product);
+                }}
+              >
+                <i className="fas fa-shopping-cart"></i>
+                <span
+                  className="buy-now-text"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleBuyNow(product);
+                  }}
+                >
+                  Mua Ngay
+                </span>
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>Không có sản phẩm nào phù hợp.</p>
+        )}
+        <div className="cart-icon">
+          <span className={`cart-count ${jumpingCount ? "jump" : ""}`}>
+            {cartItemCount}
+          </span>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 }
 

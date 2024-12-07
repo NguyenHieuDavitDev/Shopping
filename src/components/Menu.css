@@ -1,0 +1,219 @@
+.menu-container {
+  display: flex; 
+  align-items: center; 
+  background-color: red; 
+  padding: 10px 20px; 
+  color: white; 
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu-item {
+  display: flex; 
+  align-items: center; 
+  margin-right: 30px; 
+  cursor: pointer; 
+  font-size: 14px; 
+}
+
+.menu-item:hover {
+  text-decoration: underline; 
+}
+
+.menu-icon {
+  margin-right: 5px; 
+  font-size: 20px; 
+}
+
+.hotline {
+  margin-left: auto; 
+  font-weight: bold; 
+}
+
+.dropdown-arrow {
+  margin-left: 5px; 
+  font-size: 12px; 
+}
+
+/* Media Queries cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .menu-item {
+    display: none; /* Ẩn các mục menu văn bản */
+  }
+
+  .menu-toggle {
+    display: flex; /* Hiện biểu tượng menu */
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .search-icon, .cart-icon {
+    display: block; /* Hiện biểu tượng tìm kiếm và giỏ hàng */
+    font-size: 24px; /* Kích thước biểu tượng lớn hơn */
+  }
+}
+
+/* Thêm media query cho mọi kích thước màn hình */
+@media (max-width: 480px) {
+  .menu-container {
+    flex-direction: column; /* Đặt các mục menu theo chiều dọc */
+    align-items: flex-start; /* Căn trái các mục menu */
+  }
+
+  .menu-item {
+    margin-right: 0; /* Bỏ margin bên phải */
+    margin-bottom: 10px; /* Thêm margin dưới mỗi mục menu */
+  }
+
+  .hotline {
+    margin-left: 0; /* Bỏ margin bên trái */
+    margin-top: 10px; /* Thêm margin trên cho hotline */
+  }
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.ReactModal__Content {
+  top: 50%; 
+  left: 50%; 
+  right: auto;
+  bottom: auto;
+  padding: 20px; 
+  background: white; 
+  border-radius: 10px; 
+  width: 400px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.ReactModal__Content h2 {
+  margin: 0 0 15px; 
+  font-size: 24px; 
+  color: #333; 
+}
+
+.ReactModal__Content button {
+  background-color: #ff4d4d; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 10px 15px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  transition: background-color 0.3s; 
+}
+
+.ReactModal__Content button:hover {
+  background-color: #ff1a1a; 
+}
+
+.ReactModal__Content ul {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.ReactModal__Content li {
+  padding: 8px 0; 
+  border-bottom: 1px solid #eee; 
+  color: #555; 
+}
+
+.ReactModal__Content li:last-child {
+  border-bottom: none; 
+}
+
+.close-button {
+  position: absolute; 
+  top: 15px; 
+  right: 15px; 
+  background: transparent; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 20px; 
+  color: #333; 
+  transition: color 0.3s; 
+}
+
+.close-button:hover {
+  color: #ff4d4d; 
+}
+
+ul li {
+  cursor: pointer;
+}
+
+.category-product li:hover {
+  color: #ff1a1a;
+}
+
+.promotion-product li:hover {
+  color: #ff1a1a;
+}
+
+.modal-content {
+  position: fixed; /* Đặt vị trí cố định */
+  top: 200px; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Căn giữa hộp thoại */
+  background: white; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+  padding: 20px; 
+  z-index: 1000; /* Đảm bảo hộp thoại nằm trên các phần tử khác */
+}
+
+.modal-content ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+.modal-content li {
+  padding: 10px 0; 
+  border-bottom: 1px solid #eee; 
+  color: #555; 
+  cursor: pointer; 
+  transition: background-color 0.3s; /* Hiệu ứng chuyển màu nền khi hover */
+}
+
+.modal-content li:hover {
+  background-color: #f0f0f0; /* Màu nền khi hover */
+}
+
+.close-button {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  background: transparent; 
+  border: none; 
+  cursor: pointer; 
+  font-size: 20px; 
+  color: #333; 
+}
+.modal-title{
+  font-size: 24px;
+  color: #fc0303;
+  margin: 0 0 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-overlay {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  background: rgba(0, 0, 0, 0.5); 
+  backdrop-filter: blur(5px); 
+  z-index: 999; 
+}
+.menu-icon-bars{
+  font-size: 20px;
+  margin-right: 10px;
+}

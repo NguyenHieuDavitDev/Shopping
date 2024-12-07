@@ -5,6 +5,7 @@
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Montserrat', sans-serif;
 }
 
 .checkout h2 {
@@ -97,4 +98,9 @@ h3 {
 
 .back-button:hover {
   background-color: #1976d2;
+}
+.back-button{
+  background-color: #4caf50;
+  color: white;
+  margin-left: 10px;
 }

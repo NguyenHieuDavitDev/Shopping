@@ -1,0 +1,123 @@
+.flash-sale-container {
+  background-color: #fff; 
+  padding: 20px; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  text-align: center; 
+  position: relative; 
+  max-width: 1280px;
+  margin-bottom: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.flash-sale-title {
+  font-size: 28px; 
+  color: #ff3d00; 
+  margin-bottom: 10px; 
+}
+
+.flash-sale-timer {
+  font-size: 18px; 
+  color: #333; 
+  margin-bottom: 15px; 
+}
+
+.timer-block {
+  display: inline-block; 
+  background-color: #f70101; 
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  font-weight: bold; 
+  font-size: 24px; 
+  color: white;
+}
+
+.timer-separator {
+  font-size: 24px; 
+  margin: 0 5px; 
+}
+
+.flash-sale-items {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
+}
+
+.flash-sale-item {
+  background-color: #f8f8f8; 
+  border-radius: 8px; 
+  padding: 10px; 
+  width: 150px; 
+  position: relative; 
+  transition: transform 0.3s; 
+  overflow: hidden; 
+}
+
+.flash-sale-item:hover {
+  transform: scale(1.05); 
+}
+
+.item-label {
+  position: absolute; 
+  top: 10px; 
+  left: 10px; 
+  background-color: #ff3d00; 
+  color: white; 
+  padding: 5px; 
+  border-radius: 5px; 
+}
+
+.item-discount {
+  position: absolute; 
+  top: 10px; 
+  right: 10px; 
+  background-color: #ff3d00; 
+  color: white; 
+  padding: 5px; 
+  border-radius: 5px; 
+  font-weight: bold; 
+}
+
+.item-price {
+  font-size: 18px; 
+  color: #e91e63; 
+  margin-top: 10px; 
+}
+
+.item-status {
+  font-size: 14px; 
+  color: #ff9800; 
+  margin-top: 5px; 
+}
+
+.item-flash-sale {
+  background-color: #f80404; 
+  color: #ffe203; 
+  padding: 5px; 
+  border-radius: 5px; 
+  margin-top: 10px; 
+}
+
+.flash-sale-item img {
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+}
+
+.view-all-button {
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  background-color: #ff3d00; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  padding: 8px 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+}
+
+.view-all-button:hover {
+  background-color: #c62828; 
+}

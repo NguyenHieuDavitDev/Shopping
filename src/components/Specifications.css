@@ -1,0 +1,195 @@
+.specifications {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.spec-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.spec-header h2 {
+  margin: 0;
+}
+
+.view-all {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.spec-item {
+  margin-bottom: 16px;
+}
+
+.spec-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.spec-link {
+  color: #007bff;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.spec-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spec-options span {
+  color: #666;
+}
+
+.spec-options .active {
+  color: #000;
+  font-weight: bold;
+}
+
+.improve-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.improve-button:hover {
+  background-color: #0056b3;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transform: translateY(-50%);
+  top: 100%;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 1.5em;
+}
+
+.modal-header img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+  font-weight: bold;
+}
+
+.tab.active {
+  border-bottom: 2px solid #ff0000;
+  color: #ff0000;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.section-content {
+  padding-left: 20px;
+}
+
+.section-content div {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+
+.section-content div strong {
+  color: #333;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open.modal-content {
+    top: 0;
+}
