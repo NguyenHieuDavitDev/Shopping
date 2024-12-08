@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../components/Login.css";
 import ForgotPassword from "./Forgot-password";
 import SignupForm from "./Signup-Form";
@@ -18,6 +18,7 @@ const Login = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -91,7 +92,12 @@ const Login = () => {
       alert("Đăng nhập thành công!");
       setIsLoggedIn(true);
       localStorage.setItem("isLoggedIn", true);
-      navigate("/product-list");
+
+      const fromCart =
+        location.state?.from === "/cart" && location.state?.orderPlaced;
+      navigate(fromCart ? "/order-success" : "/product-list", {
+        state: { name: username },
+      });
     } else {
       alert("Tên đăng nhập hoặc mật khẩu không đúng.");
     }
@@ -110,12 +116,6 @@ const Login = () => {
     users.push({ username: newUsername, password: newPassword });
     localStorage.setItem("users", JSON.stringify(users));
     alert("Đăng ký thành công!");
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    localStorage.removeItem("isLoggedIn");
-    alert("Đăng xuất thành công!");
   };
 
   return (
@@ -203,15 +203,9 @@ const Login = () => {
         Forgot password?
       </a>
       <div className="container-login-button">
-        {isLoggedIn ? (
-          <button className="login-button" onClick={handleLogout}>
-            Đăng Xuất
-          </button>
-        ) : (
-          <button className="login-button" onClick={handleLogin}>
-            LOGIN
-          </button>
-        )}
+        <button className="login-button" onClick={handleLogin}>
+          LOGIN
+        </button>
       </div>
       <div className="social-signup">
         <p className="social-signup-text">Or Sign Up Using</p>

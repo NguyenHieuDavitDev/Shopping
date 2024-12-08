@@ -47,7 +47,13 @@ function Cart() {
   };
 
   const handleCheckout = () => {
-    navigate("/checkout");
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (!isLoggedIn) {
+      navigate("/login", { state: { from: "/cart", orderPlaced: true } });
+    } else {
+      const username = localStorage.getItem("username") || "Quý khách";
+      navigate("/order-success", { state: { name: username } });
+    }
   };
 
   return (

@@ -25,6 +25,7 @@ const Header = () => {
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [productCategoryModalIsOpen, setProductCategoryModalIsOpen] =
     useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     if (cartItemCount > 0) {
@@ -83,6 +84,10 @@ const Header = () => {
 
   const handleLoginClick = () => {
     navigate("/login");
+  };
+
+  const handleLoginStatusChange = (status) => {
+    setIsLoggedIn(status);
   };
 
   return (
@@ -193,9 +198,20 @@ const Header = () => {
         </div>
       )}
       <ul className="nav-links">
-        <li className="nav-item" onClick={handleLoginClick}>
-          <FontAwesomeIcon icon={faUser} /> Đăng nhập
-        </li>
+        {isLoggedIn ? (
+          <li
+            className="nav-item"
+            onClick={() => {
+              handleLoginStatusChange(false);
+            }}
+          >
+            <FontAwesomeIcon icon={faUser} /> Đăng xuất
+          </li>
+        ) : (
+          <li className="nav-item" onClick={handleLoginClick}>
+            <FontAwesomeIcon icon={faUser} /> Đăng nhập
+          </li>
+        )}
         <li className="nav-item" onClick={() => navigate("/cart")}>
           <FontAwesomeIcon icon={faShoppingCart} />
           <span
